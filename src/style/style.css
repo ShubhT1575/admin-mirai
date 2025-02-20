@@ -1,0 +1,660 @@
+.copy-address-input {
+  width: 500px !important;
+}
+
+.copy-link-btn {
+  background-color: #a33ff9 !important;
+}
+
+.copy-link-btn:hover {
+  background-color: #6600c0 !important;
+}
+
+.copy-icon {
+  color: #a33ff9;
+}
+
+.icon-flip {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.custom-btn-icons {
+  font-size: 1.1rem !important;
+}
+
+.app-sidebar .side-menu__icon {
+  font-size: 1.3rem;
+}
+
+.slide.has-sub {
+  margin-bottom: 15px;
+  margin-top: 35px;
+}
+
+.custom-button .custom-btn-icons {
+  margin-top: -1px;
+}
+
+.sidebar {
+  display: none !important;
+}
+
+.sidebar.active {
+  display: block !important;
+}
+
+.side-menu-icon {
+  width: 20px !important;
+  margin-right: 15px;
+}
+
+#sales-overview-crm {
+  overflow-x: auto;
+}
+
+.btn-group-table-dropdown {
+  width: 100%;
+}
+
+.form-check {
+  padding-left: 0rem !important;
+}
+
+.saleChart-body {
+  padding-bottom: 0px !important;
+}
+
+/* table-data-dropdown Start */
+.select-menu {
+  width: 100%;
+}
+
+.select-menu .select-btn {
+  display: flex;
+  height: 40px;
+  background: #fff;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn i {
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg);
+}
+
+.select-menu .options {
+  position: relative;
+  padding: 0px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.select-menu.active .options {
+  display: block;
+}
+
+.options .option {
+  display: flex;
+  height: 40px;
+  cursor: pointer;
+  padding: 0 28px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+
+.options .option:hover {
+  background: #f2f2f2;
+}
+
+.option i {
+  font-size: 25px;
+  margin-right: 12px;
+}
+
+.option .option-text {
+  font-size: 12px;
+  color: #333;
+}
+
+/* table-data-dropdown End */
+
+.btn-outline-primary {
+  position: relative;
+  overflow: hidden;
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+  border-color: rgba(0, 123, 255, 1);
+  /* RGB equivalent of primary color */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8), 0 0 20px rgba(0, 123, 255, 0.6),
+    0 0 30px rgba(0, 123, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .btn-list {
+    margin-top: 15px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .page-header-breadcrumb .btn-list .btn {
+    width: fit-content;
+  }
+
+  .copy-address-input {
+    width: 100% !important;
+  }
+
+  .svg-incomegraph-main {
+    height: 300px !important;
+    width: 300px !important;
+  }
+
+  .css-1xmeye7-MuiResponsiveChart-container {
+    margin-left: 20px !important;
+    margin-bottom: 0px !important;
+  }
+}
+
+.app-sidebar .main-sidebar-header {
+  height: 4.2rem;
+  border: none;
+}
+
+#sidebar {
+  transition: width 0.3s ease-in-out;
+}
+
+#m-content {
+  transition: margin-left 0.3s ease-in-out;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: "<percentage>";
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: true;
+}
+
+:root {
+  --d: 2500ms;
+  --angle: 90deg;
+  --gradX: 100%;
+  --gradY: 50%;
+  --c1: rgb(63, 82, 250);
+  --c2: rgb(0, 215, 243);
+}
+
+.wrapper {
+  min-width: min(40rem, 100%);
+}
+
+.box {
+  font-size: 14px;
+  border: 0.25rem solid;
+  /* border-radius: 10px !important; */
+  padding: 12px !important;
+  border-image: conic-gradient(from var(--angle),
+      var(--c2),
+      var(--c1) 0.1turn,
+      var(--c1) 0.15turn,
+      var(--c2) 0.25turn) 30;
+  animation: borderRotate var(--d) linear infinite forwards;
+  /* border-radius: 10px !important; */
+}
+
+.box:nth-child(2) {
+  border-image: radial-gradient(ellipse at var(--gradX) var(--gradY),
+      var(--c1),
+      var(--c1) 10%,
+      var(--c2) 40%) 30;
+  animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 420deg;
+  }
+}
+
+@keyframes borderRadial {
+  20% {
+    --gradX: 100%;
+    --gradY: 50%;
+  }
+
+  40% {
+    --gradX: 100%;
+    --gradY: 100%;
+  }
+
+  60% {
+    --gradX: 50%;
+    --gradY: 100%;
+  }
+
+  80% {
+    --gradX: 0%;
+    --gradY: 50%;
+  }
+
+  100% {
+    --gradX: 50%;
+    --gradY: 0%;
+  }
+}
+
+.table th,
+.table td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+  line-height: 1.462;
+  font-size: 0.813rem;
+  font-weight: 400;
+}
+
+.table> :not(caption)>*>* {
+  --bs-body-bg: var(--custom-white);
+  color: inherit;
+}
+
+.table> :not(caption)>*>* {
+  color: var(--bs-table-color-state,
+      var(--bs-table-color-type, var(--bs-table-color)));
+  background-color: var(--bs-table-bg);
+  border-bottom-width: var(--bs-border-width);
+  box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+.task-list-tab {
+  padding-left: 0px;
+}
+
+.Leads-overview {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+}
+
+.cc .connect-btn {
+  height: 100%;
+  width: 100%;
+  background-color: transparent !important;
+  border: none;
+}
+
+.cc {
+  padding: 0px;
+}
+
+.cc div {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .head-logo {
+    display: none !important;
+  }
+
+  .chain-btn-wallet {
+    display: none !important;
+  }
+
+  .header-content-right {
+    padding-right: 0px;
+  }
+
+  .stake-amt-buttons {
+    gap: 8px;
+  }
+
+  .btn-pagination {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 7px;
+  }
+
+  .pagination-body {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .stake-amt-buttons {
+    gap: 10px !important;
+  }
+
+  .default-package {
+    gap: 3px !important;
+  }
+
+  .signup-body {
+    padding: 20px !important;
+    margin-top: 50px;
+  }
+
+  .signin-body {
+    padding: 20px !important;
+  }
+
+  .slide.has-sub {
+    margin-bottom: 0px;
+  }
+
+  .head-welcome {
+    font-size: 16px !important;
+  }
+
+  .head-tog {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  .btn-connect-address {
+    padding: opx 5px !important;
+  }
+
+  .btn.btn-success-gradient {
+    padding: 0px 5px !important
+  }
+}
+
+.table {
+  --bs-table-bg: 19191c !important;
+  color: white !important;
+  border-color: #ffffff1a !important;
+  margin-block-end: 0;
+}
+
+.table> :not(caption)>*>* {
+  color: white;
+}
+
+#signup-package::placeholder {
+  color: white;
+  font-size: 14px;
+}
+
+#signup-firstname::placeholder {
+  color: white !important;
+  font-size: 14px !important;
+}
+
+.direct-data-table tbody tr td {
+  padding: 17px !important;
+}
+
+.bg-lapse {
+  background-color: rgba(14, 13, 13, 0.726);
+}
+
+.bg-lapse-inner {
+  background-image: url(../assets/img/pattern-2.svg);
+}
+
+.chat-modal-text {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.chat-modal-head {
+  color: #8a8989;
+}
+
+.accordion-head-inner h5 {
+  color: #fff;
+}
+
+.stakebtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed !important;
+}
+
+@media (max-width: 990px) {
+  .main-sidebar {
+    display: none;
+    transition: transform 0.3s ease !important;
+  }
+  .midd-container {
+
+    background-image: none !important;
+  }
+  .app-sidebar {
+    margin-top: 68px;
+  }
+
+  #sidebar {
+    transition: transform 0.5s ease !important;
+  }
+
+  .t {
+    transform: translate(-15rem) !important;
+  }
+
+  .dash-head-div {
+    margin-top: 20px !important;
+  }
+
+  .y {
+    transform: translate(0px) !important;
+  }
+
+  .page-head-breadcrumb {
+    margin-top: 20px !important;
+  }
+
+  .dash-logo {
+    display: block !important;
+  }
+
+  .left-row-cards .col-sm-6 {
+    padding-right: 0px !important;
+  }
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.Documents-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  border: none;
+  padding: 5px 15px !important;
+  border-radius: 5px;
+  background: linear-gradient(to left bottom, #9b3ce8, #3386ef, #13bcec);
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.folderContainer {
+  width: 40px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.fileBack {
+  z-index: 1;
+  width: 80%;
+  height: auto;
+}
+
+.filePage {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  transition: all 0.3s ease-out;
+}
+
+.fileFront {
+  width: 85%;
+  height: auto;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.95;
+  transform-origin: bottom;
+  transition: all 0.3s ease-out;
+}
+
+.text {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0px;
+}
+
+.Documents-btn:hover .filePage {
+  transform: translateY(-5px);
+}
+
+.Documents-btn:hover {
+  background-color: rgb(58, 58, 94);
+}
+
+.Documents-btn:hover .fileFront {
+  transform: rotateX(30deg);
+}
+
+.crypto-buy-sell-input::placeholder {
+  color: white;
+}
+
+.crypto-123::placeholder {
+  font-size: 16px;
+  color: #92939e;
+}
+
+
+.btn-buyCrpto {
+  --green: #1BFD9C;
+  font-size: 15px;
+  padding: 0.7em 2.7em;
+  letter-spacing: 0.06em;
+  position: relative;
+  font-family: inherit;
+  border-radius: 0.6em;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  border: 2px solid var(--green);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 253, 156, 0.1) 100%);
+  color: var(--green);
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+}
+
+.btn-buyCrpto:hover {
+  color: #82ffc9;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+}
+
+.btn-buyCrpto:before {
+  content: "";
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform .4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
+}
+
+.btn-buyCrpto:hover:before {
+  transform: translateX(15em);
+}
+
+@media (min-width: 1300px) and (max-width: 1600px) {
+  .col-12-img {
+    height: 400px !important;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1300px) {
+  .col-12-img {
+    height: 500px !important;
+  }
+}
+
+
+@media (max-width: 770px) {
+  .head-welcome {
+    font-size: 15px !important;
+  }
+
+  .main-header-container {
+    margin: 2px !important;
+    align-items: center !important;
+    /* margin-block: inherit  !important; */
+  }
+
+  .connect-btn {
+    width: max-content;
+  }
+
+  .navPills {
+    width: max-content !important;
+    margin-left: 20px;
+  }
+
+  .midd-container {
+
+    background-image: none !important;
+    margin-top: 50px;
+  }
+
+  .loginbtns{
+    justify-content: center;
+  }
+
+  .hero-logo {
+    margin-bottom: 50px;
+  }
+  .offcanvas {
+    width: 50%;
+  }
+}
+.side-menu__item {
+  padding: 0.65rem 10px !important;
+}

@@ -1,0 +1,137 @@
+.text-overlay {
+    margin: -30px 0px 0px 30px;
+  }
+  
+  .help-center-accordion button,
+  .help-center-accordion .accordion-body {
+    /* background-color: #000;
+    color: #fff; */
+    padding: 1rem 0;
+    font-size: 14px;
+  }
+  
+  .help-center-accordion .accordion-button::after {
+    background-image: unset !important;
+    content: "\f078";
+    /* Unicode for Font Awesome chevron-down */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    /* Font Awesome solid style */
+    font-size: 1rem;
+    margin-left: auto;
+  }
+  
+  .sec_inr .accordion-button::after,
+  .sec_inr .accordion-button:not(.collapsed)::after {
+    background-image: unset !important;
+    font-family: "Font Awesome 5 Free";
+    content: "\f067" !important;
+  }
+  
+  .help-center-accordion .accordion-button:not(.collapsed)::after {
+    content: "\f077";
+    /* Unicode for Font Awesome chevron-up */
+  }
+  
+  .help-center-accordion .accordion-item {
+    border-bottom: 1px solid #ccc !important;
+  }
+  
+  ul.green_bulltes {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul.green_bulltes li {
+    list-style: none inside none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .no_list {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-right: 10px;
+  }
+  
+  .list_content {
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+  }
+  
+  .earn_heading {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+  
+  .border-divider {
+    border-top: 1px dashed #404347;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .highlight_card {
+    /* background-color: #1c1c1e; */
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .arrow_col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .display_row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, auto);
+  }
+  
+  .chat-image {
+    max-width: 50%; /* Ensures the image doesn't exceed the container's width */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners to the images */
+    object-fit: contain; /* Optional: Ensures the image covers the container */
+  }
+  /* Firefox */
+  .chat_custom-scrollbar {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #ccc #fff; /* thumb and track color */
+  }
+  
+  .chat-refresh-round {
+    animation: chat-refresh 1s linear infinite;
+  }
+  
+  @keyframes chat-refresh {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .coin_style3 {
+    background: #000;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .support-inputs2 {
+    display: flex;
+  }
+  

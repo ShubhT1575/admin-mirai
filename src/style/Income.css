@@ -1,0 +1,290 @@
+.Tokenomics-section {
+  background-color: rgb(29, 29, 29);
+  border-radius: 10px;
+}
+.LooksRare-span {
+  color: #55a0ce !important;
+  font-size: 35px !important;
+  font-weight: 600 !important;
+}
+.LooksRare-div {
+  display: flex;
+  align-items: center;
+}
+.Looks-token-container {
+  color: white !important;
+  font-size: 40px !important;
+  font-weight: 500 !important;
+}
+.Tokenomics-section {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+.percentage-amount {
+  font-size: 35px;
+  font-weight: bold;
+}
+.distribution-section {
+  padding-top: 20px;
+  padding-right: 25px;
+}
+.distribution-label {
+  font-size: 23px;
+}
+.breakdown-container {
+  /* margin-top: 35px; */
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid grey;
+}
+.community-section {
+  display: flex;
+  padding-top: 36px;
+}
+.community-bar {
+  width: 120px;
+  padding-right: 20px;
+}
+.x-charts-pie-chart path {
+  stroke: none !important;
+}
+.css-1068ku4-MuiResponsiveChart-container {
+  width: 100%;
+}
+.vertical-line {
+  height: 30px; /* Height of the line */
+  width: 2px; /* Thickness of the line */
+  background-color: #333; /* Color of the line */
+  margin: 0 45px; /* Optional margin */
+  position: relative;
+  top: 10;
+  left: 10;
+}
+.tokenomics-breakdown-section {
+  display: flex;
+  flex-direction: row;
+}
+.chart-container {
+  width: 300px;
+  height: 280px;
+}
+.pichartContainer div g g {
+  transform: translate(21%, 21%) !important;
+}
+.LooksRare-card {
+  background-color: inherit !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+/* Adjust layout for mobile devices */
+@media (max-width: 768px) {
+  .Tokenomics-section {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .main-piechart-container,
+  .token-distribution {
+    width: 100%; /* Stack the columns */
+  }
+
+  .LooksRare-div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .LooksRare-span {
+    font-size: 30px; /* Adjust font size */
+  }
+
+  .Looks-token-container {
+    font-size: 35px !important;
+  }
+
+  /* .distribution-section {
+      padding: 50px;
+    } */
+
+  .percentage-amount {
+    font-size: 25px; /* Adjust font size */
+  }
+
+  .distribution-label {
+    font-size: 18px; /* Adjust font size */
+  }
+
+  .community-section {
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+  }
+
+  .breakdown-container {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  /* Adjust the pie chart and labels for smaller screens */
+  .x-charts-pie-chart {
+    width: 100%;
+    height: auto;
+  }
+  .LooksRare-div {
+    flex-direction: row;
+    align-items: center;
+  }
+  .tokenomics-breakdown-section {
+    display: flex;
+    flex-direction: column;
+  }
+  /* .community-breakdown-section {
+      padding-left: 50px;
+      padding-right: 50px;
+    } */
+  .piechart {
+    padding-left: 50px;
+  }
+}
+
+/* For smaller devices, make pie chart more compact */
+@media (max-width: 576px) {
+  .percentage-amount {
+    font-size: 26px;
+  }
+
+  .distribution-label {
+    font-size: 20px;
+  }
+
+  .main-piechart-container,
+  .token-distribution {
+    width: 100%; /* Ensure both sections are stacked */
+  }
+
+  .LooksRare-container {
+    padding: 20px 0;
+  }
+
+  .Tokenomics-section {
+    flex-direction: column;
+  }
+
+  .x-charts-pie-chart {
+    width: 100%; /* Make PieChart fit smaller screens */
+    height: auto;
+  }
+  .LooksRare-div {
+    flex-direction: row;
+    align-items: center;
+  }
+  .main-piechart-container {
+    align-content: center;
+    text-align: center;
+  }
+}
+@media (min-width: 768px) and (max-width: 820px) {
+  .tokenomics-breakdown-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-piechart-container {
+    align-content: center;
+    text-align: center;
+  }
+  .Tokenomics-section {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 820px) and (max-width: 1024px) {
+  .tokenomics-breakdown-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-piechart-container {
+    align-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .Tokenomics-section {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .LooksRare-card {
+    width: 100%;
+  }
+  .LooksRare-container {
+    width: 100%;
+  }
+}
+@media (min-width: 990px) and (max-width: 1024px) {
+  .tokenomics-breakdown-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-piechart-container {
+    align-content: center;
+    text-align: center;
+  }
+  .Tokenomics-section {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .LooksRare-card {
+    width: 100%;
+  }
+  .LooksRare-container {
+    width: 100%;
+  }
+  .main-piechart-container {
+    max-width: auto !important;
+  }
+}
+
+/* 
+  @media (max-width: 1024px) {
+    .percentage-amount {
+      font-size: 20px;
+    }
+  
+    .distribution-label {
+      font-size: 15px;
+    }
+  
+    .col-lg-4,
+    .col-lg-8 {
+      width: 100%; 
+    }
+  
+    .LooksRare-container {
+      background-color: #0e0c10;
+      max-width: 445 !important;
+    }
+  
+    .Tokenomics-section {
+      flex-direction: column;
+    }
+  
+    .x-charts-pie-chart {
+      width: 100%; 
+      height: auto;
+    }
+    .LooksRare-div {
+      flex-direction: row;
+      align-items: center;
+    }
+    .main-piechart-container {
+      align-content: center;
+      text-align: center;
+    }
+    .tokenomics-breakdown-section {
+      display: flex;
+      flex-direction: row;
+    }
+  } */

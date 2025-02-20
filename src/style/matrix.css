@@ -1,0 +1,604 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400");
+/* .indicator{
+    position:relative;
+    padding-bottom:25px;
+  }
+  .indicator:before, .indicator:after{
+    content:'';
+    position:absolute;
+    background:#f00;
+    height:3px;
+    width:20%;
+    bottom:-20%;
+  }
+  .indicator:before{
+    left:30.75%;
+    transform:rotate(-20deg);
+  }
+  .indicator:after{
+    right:30.75%;
+    transform:rotate(20deg);
+  }
+  tr:first-child .indicator:before, tr:first-child .indicator:after{
+    bottom:-30%;
+  }
+  tr:first-child .indicator:before{
+    left:30.4%;
+    transform:rotate(-15deg);
+  }
+  tr:first-child .indicator:after{
+    right:30.4%;
+    transform:rotate(15deg);
+  }
+  tr:last-child .indicator{
+    padding:0;
+  }
+  tr:last-child .indicator:before, tr:last-child .indicator:after{
+    display:none;
+  }
+  .matrix-table-main-div{
+    box-shadow: 0 6px 16px 2px #0000000d;
+    border-radius: 10px;
+  }
+  .matrix-table-tbody tr td img{
+    height: 80px;
+  }*/
+.matrix-div {
+  /* background-color: #f7f7f7; */
+  margin-top: 68px;
+  margin-left: 240px;
+  display: flex;
+  padding-left: 12px;
+  padding-right: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px 2px #0000000d;
+}
+@media (min-width: 480px) {
+  .matrix-div {
+    overflow-x: auto;
+    /* margin: 0;
+      padding-top: 68px; */
+  }
+}
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.mgt-container {
+  flex-grow: 1;
+  overflow: auto;
+  justify-content: center;
+}
+.basic-style {
+  background-color: #efe6e2;
+}
+.mgt-item-parent p {
+  font-weight: 400;
+  color: #de5454;
+}
+
+.management-tree {
+  background-color: #19191c00;
+  font-family: inherit;
+  padding: 40px;
+  height: 80vh;
+  overflow: auto;
+}
+.management-tree .person {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+}
+.management-tree .person img {
+  max-width: 80px;
+  border: 2px solid #d7d7d7;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+.management-tree .person p.name {
+  background-color: #f7f7f7;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #676767;
+  margin: 0;
+  position: relative;
+  color: black;
+  border-radius: 10px;
+}
+.management-tree .person p.name:before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  background-color: #d7d7d7;
+  left: 50%;
+  top: 0;
+  transform: translateY(-100%);
+}
+
+.mgt-wrapper {
+  display: flex;
+}
+.mgt-wrapper .mgt-item {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.mgt-wrapper .mgt-item .mgt-item-parent {
+  margin-bottom: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.mgt-wrapper .mgt-item .mgt-item-parent:after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 25px;
+  bottom: 0;
+  left: 50%;
+  background-color: #d7d7d7;
+  transform: translateY(100%);
+}
+.mgt-wrapper .mgt-item .mgt-item-children {
+  display: flex;
+  justify-content: center;
+}
+.mgt-wrapper .mgt-item .mgt-item-children .mgt-item-child {
+  padding: 0 15px;
+  position: relative;
+}
+.mgt-wrapper .mgt-item .mgt-item-children .mgt-item-child:before,
+.mgt-wrapper .mgt-item .mgt-item-children .mgt-item-child:after {
+  content: "";
+  position: absolute;
+  background-color: #d7d7d7;
+  left: 0;
+}
+.mgt-wrapper .mgt-item .mgt-item-children .mgt-item-child:before {
+  left: 50%;
+  top: 0;
+  transform: translateY(-100%);
+  width: 2px;
+  height: 25px;
+}
+.mgt-wrapper .mgt-item .mgt-item-children .mgt-item-child:after {
+  top: -23px;
+  transform: translateY(-100%);
+  height: 2px;
+  width: 100%;
+}
+.mgt-wrapper .mgt-item .mgt-item-children .mgt-item-child:first-child:after {
+  left: 50%;
+  width: 50%;
+}
+.mgt-wrapper .mgt-item .mgt-item-children .mgt-item-child:last-child:after {
+  width: calc(50% + 1px);
+}
+.person-profile {
+  height: 80px;
+  width: 80px;
+  background-color: #000;
+  border-radius: 50%;
+  z-index: 100;
+  border: 6px double #fff;  
+  background-image: url("/Tether Ocean1.png");
+  background-position: center;
+  background-size: contain;
+}
+.dropdown-links {
+  background: none;
+  border: none;
+  position: relative;
+  left: 22px;
+  margin-bottom: 0px;
+}
+@media (max-width: 768px) {
+  .management-tree {
+    /* padding: 20px; */
+    /* height: 60vh; */
+  }
+  .management-tree .person .person-profile {
+    height: 40px;
+    width: 40px;
+  }
+  .management-tree .person p.name {
+    font-size: 10px;
+    padding: 3px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .management-tree {
+    /* padding: 20px;
+    height: 70vh; */
+  }
+  .management-tree .person .person-profile {
+    height: 40px;
+    width: 40px;
+  }
+  .management-tree .person p.name {
+    font-size: 15px;
+    /* padding: 5px; */
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .management-tree {
+    /* padding: 20px;
+    height: 70vh; */
+  }
+  .management-tree .person .person-profile {
+    height: 60px;
+    width: 60px;
+  }
+  .management-tree .person p.name {
+    font-size: 15px;
+    /* padding: 5px; */
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .management-tree {
+    /* padding: 20px;
+    height: 70vh; */
+  }
+  .management-tree .person .person-profile {
+    height: 60px;
+    width: 60px;
+  }
+  .management-tree .person p.name {
+    font-size: 15px;
+    /* padding: 5px; */
+  }
+}
+@media (min-width: 1400px) {
+  .management-tree {
+    /* padding: 20px;
+    height: 70vh; */
+  }
+  .management-tree .person .person-profile {
+    height: 60px;
+    width: 60px;
+  }
+  .management-tree .person p.name {
+    font-size: 15px;
+    /* padding: 5px; */
+  }
+}
+.mytreebox {
+  position: relative;
+  background: #0c1529;
+  /* background: linear-gradient(to right bottom, #0b3142, #1c2746); */
+  border: 2px solid #03325b;
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+  margin: 0 auto 25px;
+}
+.mytreebox-header {
+  padding: 8px 15px 6px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.mytreebox-lbl {
+  font-size: 16px;
+  text-align: left;
+}
+.mytreebox-sloat {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+.mytreebox-dai {
+  font-size: 16px;
+  text-align: right;
+}
+.body-section {
+  cursor: pointer;
+}
+.body-disablesection {
+  cursor: not-allowed;
+}
+.mytreebox-body {
+  padding: 12px 1px 0;
+}
+.mytree-item {
+  text-align: center;
+}
+.mytree-item .mytree-icon {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 14px;
+}
+.mytree-item.active > .mytree-icon {
+  border: 2px solid #189a4f;
+  background: #128945;
+}
+.mytree-l1 {
+  display: flex;
+  position: relative;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: center;
+}
+.mytree-l1 .mytree-item .mytree-icon {
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  background: url(../img/dai.png) no-repeat;
+  background-size: 50%;
+  background-position: 55% 50%;
+}
+.mytree-l2 {
+  display: flex;
+  position: relative;
+  padding: 8px 0 0;
+  align-items: center;
+  justify-content: center;
+}
+.mytree-l2 .mytree-item {
+  width: 50%;
+  position: relative;
+}
+.mytree-l2 .mytree-item .mytree-icon {
+  width: 28px;
+  height: 28px;
+  line-height: 26px;
+  position: relative;
+  background: url(../img/dai.png) no-repeat;
+  background-size: 50%;
+  background-position: 55% 50%;
+}
+.mytree-l2 .mytree-item:first-child {
+  left: 0;
+}
+.mytree-l2 .mytree-item:last-child {
+  right: 0;
+}
+.mytree-l2 .mytree-item:first-child:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 0px;
+  border-top: 2px dashed #fff;
+  right: 12px;
+  top: -12px;
+  transform: rotate(-45deg);
+}
+.mytree-l2 .mytree-item:last-child:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 0px;
+  border-top: 2px dashed #fff;
+  left: 12px;
+  top: -12px;
+  transform: rotate(45deg);
+}
+.mytree-l3 {
+  display: flex;
+  position: relative;
+  padding: 14px 0;
+  align-items: center;
+  justify-content: center;
+}
+.mytree-l3 .mytree-item {
+  width: 50%;
+  position: relative;
+}
+.mytree-l3 .mytree-item .mytree-icon {
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+  position: relative;
+  background: url(../img/dai.png) no-repeat;
+  background-size: 50%;
+  background-position: 55% 50%;
+}
+.mytree-l3 .mytree-item:first-child {
+  left: 0;
+}
+.mytree-l3 .mytree-item:last-child {
+  right: 0;
+}
+.mytree-l3 .mytree-item:first-child:before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 0px;
+  border-top: 1px dashed #fff;
+  right: 6px;
+  top: -9px;
+  transform: rotate(-48deg);
+}
+.mytree-l3 .mytree-item:last-child:before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 0px;
+  border-top: 1px dashed #fff;
+  left: 6px;
+  top: -9px;
+  transform: rotate(48deg);
+}
+.mytreebox-footer {
+  padding: 0px 12px 5px;
+}
+.mytreebox-footer-content {
+  display: flex;
+  font-size: 16px;
+  color: #fff;
+}
+.mytree-item.deactiv {
+}
+.mytree-item.deactiv .mytree-icon {
+  border: 2px solid #fff;
+  background: none;
+  opacity: 0.3;
+}
+.mytree-item.deactiv:before {
+  opacity: 0.3;
+}
+.mytree-item.deactiv .mytree-l3 .mytree-item:before {
+  opacity: 0.3;
+}
+.mytreebox.deactiv {
+  background: none;
+  border: 1px solid rgba(40, 110, 150, 0.3);
+}
+.mytreebox-users {
+  width: 50%;
+  text-align: left;
+}
+.mytreebox-trans {
+  width: 50%;
+  text-align: right;
+}
+.treeusers-icon {
+  padding: 0 14px;
+  position: relative;
+  background: url(../img/users.png) no-repeat;
+  background-size: 70%;
+  background-position: 5% 50%;
+}
+.treetrans-icon {
+  padding: 0 14px;
+  position: relative;
+  background: url(../img/exchange.png) no-repeat;
+  background-size: 70%;
+  background-position: 5% 50%;
+}
+.treegrowth {
+  display: flex;
+  margin: 1px 0;
+}
+.growth-per {
+  width: 50px;
+  font-size: 13px;
+  color: #fff;
+}
+.mytreebox .progress {
+  box-shadow: none;
+  background: none;
+  height: 11px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 100%;
+  margin: 4px 0 0;
+}
+.mytreebox .progress-bar {
+  background-color: #14b37b;
+  border: 1px solid #14b37b;
+}
+.binary-card {
+  height: 150px;
+  width: 100px;
+  padding: 0;
+}
+.binary-card .person-profile {
+  height: 10px;
+  width: 10px;
+}
+.person-profile-card {
+  height: 30px;
+}
+.btn-packages {
+  border-radius: 5px !important;
+  overflow-y: auto;
+}
+.overflow-div {
+  height: 200px;
+  overflow-y: auto;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  text-align: center;
+  width: 100px;
+}
+.drop-ul {
+  background-color: black;
+}
+.side-menu__item {
+  color: #fff;
+}
+/* From Uiverse.io by adamgiebl */
+.card-uw6 {
+  width: 200px;
+  height: 254px;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+}
+
+.card__content {
+  background-color: #19191c;
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card-parent-uw6 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 131px;
+}
+.head-uw6 {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  border-bottom: 2px rebeccapurple solid;
+}
+.main-uw6 {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+}
+.foot-uw6 {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-top: 2px rebeccapurple solid;
+}
+/* .drop-ul{} */
+.overflow-div {
+  width: 170px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.side-menu__label{
+  padding: 0;
+}

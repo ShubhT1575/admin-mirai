@@ -1,0 +1,48 @@
+{
+  "name": "dashboard-mlm",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/material": "^6.1.9",
+    "@mui/x-charts": "^7.22.3",
+    "@rainbow-me/rainbowkit": "^2.2.0",
+    "@reduxjs/toolkit": "^2.5.0",
+    "@tanstack/react-query": "^5.61.3",
+    "axios": "^1.7.9",
+    "bootstrap-icons": "^1.11.3",
+    "d3": "^7.9.0",
+    "react": "^18.3.1",
+    "react-apexcharts": "^1.5.0",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.3.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.28.0",
+    "react-toastify": "^11.0.3",
+    "redux-persist": "^6.0.0",
+    "socket.io-client": "^4.8.1",
+    "viem": "^2.21.51",
+    "wagmi": "^2.13.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "vite": "^5.4.10"
+  }
+}
