@@ -4027,7 +4027,7 @@ label {
 } */
 
 .dropdown-menu a:hover {
-  color: var(--tg-primary-color) !important;
+  color: #9dd12c !important;
 }
 
 .dropdown-menu:before {

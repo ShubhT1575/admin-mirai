@@ -22,11 +22,11 @@ function DashboardRow2() {
   const [directList, setDirectList] = useState([]);
   const [IncomeOverview, setIncomeOverview] = useState({});
   const [dateType, setDateType] = useState("Yearly");
-  const { tokenData } = useSelector((state) => state.bitgold);
-  const TokenAddress = tokenData?.address;
-  const tokenDecimals = tokenData?.decimals;
-  const { dashboardData } = useSelector((state) => state.bitgold);
-  const { directUser, directBusiness, teamBusiness, teamUser } = dashboardData;
+  // const { tokenData } = useSelector((state) => state.bitgold);
+  // const TokenAddress = tokenData?.address;
+  // const tokenDecimals = tokenData?.decimals;
+  // const { dashboardData } = useSelector((state) => state.bitgold);
+  // const { directUser, directBusiness, teamBusiness, teamUser } = dashboardData;
   // const { walletAddress } = wallet;
   const { address } = useAccount();
   const [isLoading, setIsLoading] = useState(false);

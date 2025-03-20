@@ -12,7 +12,8 @@ function CoreBody() {
   const [directUser, setDirectUser] = useState([]);
   const [currentPageTable1, setCurrentPageTable1] = useState(1);
   const [currentPageTable2, setCurrentPageTable2] = useState(1);
-  const itemsPerPage = 5;
+    const [dateType, setDateType] = useState("Club A");
+  const itemsPerPage = 10;
   // const totalPages = Math.ceil(transaction.length / itemsPerPage);
   const totalPagesTable1 = Math.ceil(transaction.filter(item => item.packageId === 1).length / itemsPerPage);
 const totalPagesTable2 = Math.ceil(transaction.filter(item => item.packageId === 2).length / itemsPerPage);
@@ -41,19 +42,21 @@ const totalPagesTable2 = Math.ceil(transaction.filter(item => item.packageId ===
   //   if (address) getCoreIncome();
   // }, [address, currentPage]);
 
+  const clubMap = { "Club A": 1, "Club B": 2, "Club C": 3 };
+
   const showTransaction = async () => {
-    const res = await axios.get(apiUrl + "/Income", {
+    const res = await axios.get(apiUrl + "/getclubreport", {
       params: {
-        user: address,
+        club: clubMap[dateType],
         // user: "0x8a62CcdFFb086c190A869E49761E6F9E422214E7",
       },
     });
-    console.log(res?.data, "income");
-    setTransaction(res?.data);
+    // console.log(res?.data, "income");
+    setTransaction(res?.data?.data);
   };
   useEffect(() => {
     if (address) showTransaction();
-  }, [address]);
+  }, [address , dateType]);
 
   const handlePreviousPageTable1 = () => {
     if (currentPageTable1 > 1) setCurrentPageTable1(currentPageTable1 - 1);
@@ -63,29 +66,75 @@ const totalPagesTable2 = Math.ceil(transaction.filter(item => item.packageId ===
     if (currentPageTable1 < totalPagesTable1) setCurrentPageTable1(currentPageTable1 + 1);
   };
   
-  const handlePreviousPageTable2 = () => {
-    if (currentPageTable2 > 1) setCurrentPageTable2(currentPageTable2 - 1);
-  };
+  // const handlePreviousPageTable2 = () => {
+  //   if (currentPageTable2 > 1) setCurrentPageTable2(currentPageTable2 - 1);
+  // };
   
-  const handleNextPageTable2 = () => {
-    if (currentPageTable2 < totalPagesTable2) setCurrentPageTable2(currentPageTable2 + 1);
-  };
+  // const handleNextPageTable2 = () => {
+  //   if (currentPageTable2 < totalPagesTable2) setCurrentPageTable2(currentPageTable2 + 1);
+  // };
   
   const paginatedTable1 = transaction
-  .filter(item => item.packageId === 1)
+  // .filter(item => item.packageId === 1)
   .slice((currentPageTable1 - 1) * itemsPerPage, currentPageTable1 * itemsPerPage);
 
 
-const paginatedTable2 = transaction
-  .filter(item => item.packageId === 2)
-  .slice((currentPageTable2 - 1) * itemsPerPage, currentPageTable2 * itemsPerPage);
+// const paginatedTable2 = transaction
+//   .filter(item => item.packageId === 2)
+//   .slice((currentPageTable2 - 1) * itemsPerPage, currentPageTable2 * itemsPerPage);
+
+function getABC(value) {
+  const map = { 1: 'A', 2: 'B', 3: 'C' };
+  return map[value] || null;
+}
 
   return (
     <div className="row">
-      <div className="col-xl-6">
+      <div className="col-xl-12">
         <div className="card custom-card overflow-hidden new-card">
           <div className="card-header justify-content-between color-dark">
-            <div className="card-title">Earning Report <strong>$5</strong></div>
+            <div className="card-title">Club Report<strong></strong></div>
+            <div className="dropdown">
+              <div
+                className="btn btn-light border btn-full btn-sm "
+                data-bs-toggle="dropdown"
+                style={{ color: "white" }}
+              >
+                {dateType}
+                <i className="ti ti-chevron-down ms-1"></i>
+              </div>
+              <ul className="dropdown-menu" role="menu">
+                <li>
+                  <a
+                    className="dropdown-item "
+                    onClick={() => setDateType("Club A")}
+                    style={{cursor: "pointer"}}
+                  >
+                    Club A
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item text-light"
+                    onClick={() => setDateType("Club B")}
+                    style={{cursor: "pointer"}}
+
+                  >
+                    Club B
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item "
+                    onClick={() => setDateType("Club C")}
+                    style={{cursor: "pointer"}}
+
+                  >
+                    Club C
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div className="card-body active-tab">
@@ -93,11 +142,12 @@ const paginatedTable2 = transaction
               <table className="table table-bordered text-nowrap mb-0">
                 <thead>
                   <tr>
-                    <th scope="col" style={{color: "black"}}>Tx Hash</th>
-                    <th scope="col" style={{color: "black"}}>Sender</th>
-                    <th scope="col" style={{color: "black"}}>Amount</th>
+                    <th scope="col" style={{color: "black"}}>S. No.</th>
+                    <th scope="col" style={{color: "black"}}>User</th>
+                    <th scope="col" style={{color: "black"}}>Referrer</th>
+                    <th scope="col" style={{color: "black"}}>Club</th>
                     {/* <th scope="col">Sender</th> */}
-                    {/* <th scope="col" style={{color: "black"}}>Transaction Hash</th> */}
+                    <th scope="col" style={{color: "black"}}>Transaction Hash</th>
                     {/* <th sscope="col" style={{color: "black"}}>Amount</th> */}
                     {/* <th scope="col">Level</th> */}
                     {/* <th scope="col" style={{color: "black"}}>Time Stamp</th> */}
@@ -108,13 +158,19 @@ const paginatedTable2 = transaction
                   {paginatedTable1?.map((item, index) => {
                     return (
                       <tr key={item._id}>
-                        {/* <td>{index + 1}</td> */}
-                        {/* <td className="text-warning">
-                          {item?.user.slice(0, 5)}...{item?.user.slice(-5)}
-                        </td> */}
+                        <td className="text-dark">{index + 1}</td>
+                        <td className="text-dark">
+                          {item?.userId}
+                        </td>
+                        <td className="text-dark">
+                          {item?.referrerId}
+                        </td>
+                        <td className="text-dark">
+                          {getABC(item?.poolId)}
+                        </td>
                         <td>
                           <a
-                            href={`https://opbnb-testnet.bscscan.com/tx/${item?.txHash}`}
+                            href={`https://polygonscan.com/tx/${item?.txHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{ color: "rgb(0, 119, 181)" }}
@@ -123,8 +179,8 @@ const paginatedTable2 = transaction
                             {item?.txHash.slice(-6)}
                           </a>
                         </td>
-                        <td style={{ color: "black" }}>{`${item.sender.slice(0,5)}...${item.sender.slice(-3)}`}</td>
-                        <td style={{ color: "green" }}>$ {item.amount}</td>
+                        {/* <td style={{ color: "black" }}>{`${item.sender.slice(0,5)}...${item.sender.slice(-3)}`}</td>
+                        <td style={{ color: "green" }}>$ {item.amount}</td> */}
                         {/* <td>{item.level}</td> */}
                         <td style={{ color: "black" }}>{new Date(item.createdAt).toLocaleString()}</td>
                         {/* <td>
@@ -148,7 +204,7 @@ const paginatedTable2 = transaction
           <div className="card-footer pagination-body">
             <div className="d-flex align-items-center justify-content-between color-dark">
               <div>
-                Showing {paginatedTable1?.length || 0} Earning Report
+                Showing {paginatedTable1?.length || 0} Club Report
                 <i className="bi bi-arrow-right ms-2 fw-semibold"></i>
               </div>
               <div>
@@ -179,109 +235,6 @@ const paginatedTable2 = transaction
               <div>
                 <span>
                   Page {currentPageTable1} of {totalPagesTable1}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col-xl-6">
-        <div className="card custom-card overflow-hidden new-card">
-          <div className="card-header justify-content-between color-dark">
-            <div className="card-title">Earning Report <strong>$25</strong></div>
-          </div>
-
-          <div className="card-body active-tab">
-            <div className="table-responsive">
-              <table className="table table-bordered text-nowrap mb-0">
-                <thead>
-                  <tr>
-                    <th scope="col" style={{color: "black"}}>Tx Hash</th>
-                    <th scope="col" style={{color: "black"}}>Sender</th>
-                    <th scope="col" style={{color: "black"}}>Amount</th>
-                    {/* <th scope="col">Sender</th> */}
-                    {/* <th scope="col" style={{color: "black"}}>Transaction Hash</th> */}
-                    {/* <th sscope="col" style={{color: "black"}}>Amount</th> */}
-                    {/* <th scope="col">Level</th> */}
-                    {/* <th scope="col" style={{color: "black"}}>Time Stamp</th> */}
-                    <th scope="col" style={{color: "black"}}>Time Stamp</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {paginatedTable2?.map((item, index) => {
-                    return (
-                      <tr key={item._id}>
-                        {/* <td>{index + 1}</td> */}
-                        {/* <td className="text-warning">
-                          {item?.user.slice(0, 5)}...{item?.user.slice(-5)}
-                        </td> */}
-                        <td>
-                          <a
-                            href={`https://opbnb-testnet.bscscan.com/tx/${item?.txHash}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ color: "rgb(0, 119, 181)" }}
-                          >
-                            {item?.txHash.slice(0, 6)}...
-                            {item?.txHash.slice(-6)}
-                          </a>
-                        </td>
-                        <td style={{ color: "black" }}>{`${item.sender.slice(0,5)}...${item.sender.slice(-3)}`}</td>
-                        <td style={{ color: "green" }}>$ {item.amount}</td>
-                        {/* <td>{item.level}</td> */}
-                        <td style={{ color: "black" }}>{new Date(item.createdAt).toLocaleString()}</td>
-                        {/* <td>
-                          <span className="badge bg-success-transparent">
-                            success
-                          </span>
-                        </td> */}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-              {paginatedTable2?.length === 0 && (
-                <div className=" w-100">
-                  <div className="w-100 text-center p-3 color-dark">No Data Found.</div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="card-footer pagination-body">
-            <div className="d-flex align-items-center justify-content-between color-dark">
-              <div>
-                Showing {paginatedTable2?.length || 0} Earning Report
-                <i className="bi bi-arrow-right ms-2 fw-semibold"></i>
-              </div>
-              <div>
-                <nav
-                  aria-label="Page navigation"
-                  className="pagination-style-4"
-                >
-                  <ul className="pagination mb-0">
-                    <button
-                      className="btn btn-primary page-item btn-pagination"
-                      style={{ marginRight: "10px" }}
-                      disabled={currentPageTable2 === 1}
-                      onClick={handlePreviousPageTable2}
-                    >
-                      Prev
-                    </button>
-
-                    <button
-                      className="btn btn-warning-gradient page-item btn-pagination"
-                      disabled={currentPageTable2 === totalPagesTable2}
-                      onClick={handleNextPageTable2}
-                    >
-                      Next
-                    </button>
-                  </ul>
-                </nav>
-              </div>
-              <div>
-                <span>
-                  Page {currentPageTable2} of {totalPagesTable2}
                 </span>
               </div>
             </div>

@@ -42,27 +42,27 @@ function Sidebar() {
     }
   }, [window.location.search]);
 
-  useEffect(() => {
-    if (Raddress) {
-      UserExist(Raddress)
-        .then((res) => {
-          if (!res) navigate("/SignUp");
-        })
-        .catch((e) => {
-          console.log(e);
-          navigate("/SignUp");
-        });
-    }
-  }, [Raddress]);
+  // useEffect(() => {
+  //   if (Raddress) {
+  //     UserExist(Raddress)
+  //       .then((res) => {
+  //         if (!res) navigate("/SignUp");
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //         navigate("/SignUp");
+  //       });
+  //   }
+  // }, [Raddress]);
 
-  const useOwner = async () => {
-    const owner = await getOwner();
-    setOwner(owner);
-  };
+  // const useOwner = async () => {
+  //   const owner = await getOwner();
+  //   setOwner(owner);
+  // };
 
-  useEffect(() => {
-    useOwner();
-  }, []);
+  // useEffect(() => {
+  //   useOwner();
+  // }, []);
 
   function closeSidebar() {
     const side = document.getElementById("sidebar");
@@ -256,7 +256,7 @@ function Sidebar() {
               >
                 <GiProfit className="side-menu__icon text-dark" />
                 <span className="side-menu__label text-dark">
-                  Users History
+                  Users Report
                 </span>
               </Link>
             </li>
@@ -269,7 +269,7 @@ function Sidebar() {
               >
                 <LuPackageCheck className="side-menu__icon text-dark" />
                 <span className="side-menu__label text-dark">
-                  Package History
+                  Package Buy Report
                 </span>
               </Link>
             </li>

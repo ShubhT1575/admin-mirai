@@ -31727,3 +31727,60 @@ a.link-underline-dark {
     display: none;
   }
 } 
+
+/* .seach-input{
+  
+} */
+.seach-input{
+  border: none !important;
+  padding: 8px;
+  border-radius: 5px;
+  outline: none; /* Remove default focus outline if needed */
+}
+
+/* Border when input is focused */
+.seach-input:focus {
+  border: none !important; /* Change color on focus */
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); /* Optional: add glow effect */
+}
+
+/* Border when input is active (e.g., clicking inside) */
+.seach-input:active {
+  border: none !important;
+}
+
+/* Custom Modal Styles with Gradient */
+.custom-modal .ant-modal-content {
+  background: linear-gradient(to bottom, #c59d3a, #eaff97);
+  color: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.custom-modal .ant-modal-header {
+  background: linear-gradient(to bottom, #c59d3a, #eaff97);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.custom-modal .ant-modal-title {
+  color: #1e1e1e;
+  font-weight: bold;
+}
+
+.custom-modal .ant-modal-footer {
+  background: linear-gradient(to bottom, #c59d3a, #eaff97);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.custom-modal a {
+  color: #0d47a1;
+  font-weight: 500;
+}
+
+.custom-modal p {
+  margin-bottom: 10px;
+}
+
+.custom-modal strong {
+  color: #000;
+}

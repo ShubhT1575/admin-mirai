@@ -12,7 +12,7 @@ function CoreBody() {
   const [directUser, setDirectUser] = useState([]);
   const [currentPageTable1, setCurrentPageTable1] = useState(1);
   const [currentPageTable2, setCurrentPageTable2] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
   // const totalPages = Math.ceil(transaction.length / itemsPerPage);
   const totalPagesTable1 = Math.ceil(transaction.filter(item => item.packageId === 1).length / itemsPerPage);
 const totalPagesTable2 = Math.ceil(transaction.filter(item => item.packageId === 2).length / itemsPerPage);
@@ -42,13 +42,9 @@ const totalPagesTable2 = Math.ceil(transaction.filter(item => item.packageId ===
   // }, [address, currentPage]);
 
   const showTransaction = async () => {
-    const res = await axios.get(apiUrl + "/recentTransaction", {
-      params: {
-        user: address,
-      },
-    });
+    const res = await axios.get(apiUrl + "/packagereport");
     // console.log(res?.data, "xx");
-    setTransaction(res?.data);
+    setTransaction(res?.data?.data);
   };
   useEffect(() => {
     if (address) showTransaction();
@@ -78,12 +74,15 @@ const paginatedTable2 = transaction
   .filter(item => item.packageId === 2)
   .slice((currentPageTable2 - 1) * itemsPerPage, currentPageTable2 * itemsPerPage);
 
+
+
   return (
     <div className="row">
       <div className="col-xl-6">
         <div className="card custom-card overflow-hidden new-card">
           <div className="card-header justify-content-between color-dark">
-            <div className="card-title">Package History<strong>$5</strong></div>
+            <div className="card-title">Package Report <strong>$5</strong></div>
+           
           </div>
 
           <div className="card-body active-tab">
@@ -92,7 +91,9 @@ const paginatedTable2 = transaction
                 <thead>
                   <tr>
                     <th scope="col" style={{color: "black"}}>Tx Hash</th>
-                    <th scope="col" style={{color: "black"}}>Package</th>
+                    <th scope="col" style={{color: "black"}}>User Id</th>
+                    {/* <th scope="col" style={{color: "black"}}>Package</th> */}
+                    <th scope="col" style={{color: "black"}}>POL Coin Amt</th>
                     {/* <th scope="col">Sender</th> */}
                     {/* <th scope="col" style={{color: "black"}}>Transaction Hash</th> */}
                     {/* <th sscope="col" style={{color: "black"}}>Amount</th> */}
@@ -120,7 +121,8 @@ const paginatedTable2 = transaction
                             {item?.txHash.slice(-6)}
                           </a>
                         </td>
-                        <td style={{ color: "green" }}>$ {item.amount}</td>
+                        <td style={{ color: "black" }}>{item?.userId}</td>
+                        <td style={{ color: "black" }}>{(item?.POLCoinAmt).toFixed(3)}</td>
                         {/* <td>{item.level}</td> */}
                         <td style={{ color: "black" }}>{new Date(item.createdAt).toLocaleString()}</td>
                         {/* <td>
@@ -144,7 +146,7 @@ const paginatedTable2 = transaction
           <div className="card-footer pagination-body">
             <div className="d-flex align-items-center justify-content-between color-dark">
               <div>
-                Showing {paginatedTable1?.length || 0} Package History
+                Showing {paginatedTable1?.length || 0} Package Report
                 <i className="bi bi-arrow-right ms-2 fw-semibold"></i>
               </div>
               <div>
@@ -184,7 +186,7 @@ const paginatedTable2 = transaction
       <div className="col-xl-6">
         <div className="card custom-card overflow-hidden new-card">
           <div className="card-header justify-content-between color-dark">
-            <div className="card-title">Package History<strong>$25</strong></div>
+            <div className="card-title">Package Report <strong>$25</strong></div>
           </div>
 
           <div className="card-body active-tab">
@@ -192,8 +194,10 @@ const paginatedTable2 = transaction
               <table className="table table-bordered text-nowrap mb-0">
                 <thead>
                   <tr>
-                    <th scope="col" style={{color: "black"}}>Tx Hash</th>
-                    <th scope="col" style={{color: "black"}}>Package</th>
+                  <th scope="col" style={{color: "black"}}>Tx Hash</th>
+                    <th scope="col" style={{color: "black"}}>User Id</th>
+                    {/* <th scope="col" style={{color: "black"}}>Package</th> */}
+                    <th scope="col" style={{color: "black"}}>POL Coin Amt</th>
                     {/* <th scope="col">Sender</th> */}
                     {/* <th scope="col" style={{color: "black"}}>Transaction Hash</th> */}
                     {/* <th sscope="col" style={{color: "black"}}>Amount</th> */}
@@ -204,7 +208,7 @@ const paginatedTable2 = transaction
                 </thead>
                 <tbody>
                   {paginatedTable2?.map((item, index) => {
-                    return (
+                     return (
                       <tr key={item._id}>
                         {/* <td>{index + 1}</td> */}
                         {/* <td className="text-warning">
@@ -212,7 +216,7 @@ const paginatedTable2 = transaction
                         </td> */}
                         <td>
                           <a
-                            href={`https://opbnb-testnet.bscscan.com/tx/${item?.txHash}`}
+                            href={`https://polygonscan.com/tx/${item?.txHash}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{ color: "rgb(0, 119, 181)" }}
@@ -221,7 +225,8 @@ const paginatedTable2 = transaction
                             {item?.txHash.slice(-6)}
                           </a>
                         </td>
-                        <td style={{ color: "green" }}>$ {item.amount}</td>
+                        <td style={{ color: "black" }}>{item?.userId}</td>
+                        <td style={{ color: "black" }}>{(item?.POLCoinAmt).toFixed(3)}</td>
                         {/* <td>{item.level}</td> */}
                         <td style={{ color: "black" }}>{new Date(item.createdAt).toLocaleString()}</td>
                         {/* <td>
@@ -245,7 +250,7 @@ const paginatedTable2 = transaction
           <div className="card-footer pagination-body">
             <div className="d-flex align-items-center justify-content-between color-dark">
               <div>
-                Showing {paginatedTable2?.length || 0} Package History
+                Showing {paginatedTable2?.length || 0} Package Report
                 <i className="bi bi-arrow-right ms-2 fw-semibold"></i>
               </div>
               <div>
