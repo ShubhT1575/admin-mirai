@@ -282,7 +282,7 @@ function Sidebar() {
               >
                 <i className="ri-wallet-3-fill side-menu__icon text-dark"></i>
                 <span className="side-menu__label text-dark">
-                  Earning Report
+                  Club Report
                 </span>
               </Link>
             </li>

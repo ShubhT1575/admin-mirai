@@ -5,9 +5,11 @@ import { useAccount } from "wagmi";
 import { useSelector } from "react-redux";
 
 function CoreBody() {
-  const { wallet } = useSelector((state) => state.bitgold);
-  const { walletAddress, isConnected } = wallet;
-  const address = walletAddress;
+  // const { wallet } = useSelector((state) => state.bitgold);
+  // const { walletAddress, isConnected } = wallet;
+  // const address = walletAddress;
+  const { address } = useAccount();
+  // console.log(address, "address");
   const [transaction, setTransaction] = useState([]);
   const [directUser, setDirectUser] = useState([]);
   const [currentPageTable1, setCurrentPageTable1] = useState(1);
@@ -55,7 +57,7 @@ const totalPagesTable2 = Math.ceil(transaction.filter(item => item.packageId ===
     setTransaction(res?.data?.data);
   };
   useEffect(() => {
-    if (address) showTransaction();
+   showTransaction();
   }, [address , dateType]);
 
   const handlePreviousPageTable1 = () => {

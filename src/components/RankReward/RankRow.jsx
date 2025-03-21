@@ -5,6 +5,7 @@ import { useAccount } from "wagmi";
 import { useSelector } from "react-redux";
 import { Button, Modal } from "antd";
 import toast from "react-hot-toast";
+import { getAddressbyRefrralId } from "../../API/Api";
 
 function CoreBody() {
   const { wallet } = useSelector((state) => state.bitgold);
@@ -103,15 +104,22 @@ function CoreBody() {
 
   const handleSearch = async () => {
     if (search !== "") {
+      const searchAdd = await getAddressbyRefrralId(search);
+      const searchAddress = searchAdd?.data;
+      console.log(searchAddress, "searchAddress");
       showLoading();
       const res = await axios.get(apiUrl + "/dashboard", {
         params: {
-          user: search,
+          user: searchAddress ?? search,
         },
       });
-      if (res) {
+      if (res?.data !== null) {
         // console.log("gg")
         setUserData(res?.data);
+      } else {
+        toast.error("Enter a valid user id");
+        setOpen(false);
+        return;
       }
     } else {
       toast.error("Enter a valid user id");
@@ -119,10 +127,46 @@ function CoreBody() {
     }
   };
 
+  const [allData, setAllData] = useState();
+  const getAllData = async () => {
+    const res = await axios.get(apiUrl + "/totaldata");
+
+    setAllData(res?.data);
+    console.log(res?.data, "alldata");
+  };
+
+  useEffect(() => {
+    getAllData();
+  }, [address]);
+
   return (
     <div className="row">
       <div className="col-xl-12">
         <div className="card custom-card overflow-hidden new-card">
+          <div
+            className="admin-info d-flex justify-content-evenly mt-3 flex-wrap w-100 gap-2"
+            style={{
+              borderBottom: "1px solid rgb(0, 0, 0)",
+              paddingBottom: "16px",
+            }}
+          >
+            <button className="btn btn-warning-gradient page-item btn-pagination">
+              <strong className="text-dark">Total User :</strong>{" "}
+              {allData?.totalUsers}
+            </button>
+            <button className="btn btn-warning-gradient page-item btn-pagination">
+              <strong className="text-dark">Total Club A :</strong>{" "}
+              {allData?.pool1Users}
+            </button>
+            <button className="btn btn-warning-gradient page-item btn-pagination">
+              <strong className="text-dark">Total Club B :</strong>{" "}
+              {allData?.pool2Users}
+            </button>
+            <button className="btn btn-warning-gradient page-item btn-pagination">
+              <strong className="text-dark">Total Club C :</strong>{" "}
+              {allData?.pool3Users}
+            </button>
+          </div>
           <div className="card-header justify-content-between color-dark">
             <div className="card-title">
               Users Report Data<strong></strong>
@@ -160,11 +204,10 @@ function CoreBody() {
                 // onClick={copyAddress}
                 onClick={handleSearch}
               >
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"></i>
               </button>
             </div>
             {/* //  )} */}
-                  
           </div>
 
           <div className="card-body active-tab">
@@ -288,10 +331,14 @@ function CoreBody() {
         </div>
       </div>
       <Modal
-        title={<p>User Info</p>}
+        title={<p style={{ color: "#ceb450" }}>User Info</p>}
         footer={
-          <Button type="primary" onClick={showLoading}>
-            Reload
+          <Button
+            type="primary"
+            className="btn btn-warning-gradient text-dark"
+            onClick={() => setOpen(false)}
+          >
+            <i className="fa-solid fa-xmark"></i>
           </Button>
         }
         loading={loading}
@@ -300,29 +347,29 @@ function CoreBody() {
       >
         {userData ? (
           <>
-            <p>
+            <p style={{ color: "#fff" }}>
               <strong>User:</strong> {userData?.user}
             </p>
-            <p>
+            <p style={{ color: "#fff" }}>
               <strong>Referrer:</strong> {userData?.referrerId}
             </p>
-            <p>
+            <p style={{ color: "#fff" }}>
               <strong>User ID:</strong> {userData?.userId}
             </p>
-            <p>
+            <p style={{ color: "#fff" }}>
               <strong>Transaction Hash:</strong>{" "}
               <a
                 href={`https://polygonscan.com/tx/${userData?.txHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "rgb(0, 119, 181)" }}
+                style={{ color: "rgb(0, 17, 255)" }}
               >
                 {userData?.txHash?.slice(0, 10)}.......
                 {userData?.txHash?.slice(-10)}
               </a>
             </p>
             {/* <p><strong>Block:</strong> {userData?.block}</p> */}
-            <p>
+            <p style={{ color: "#fff" }}>
               <strong>Timestamp:</strong>{" "}
               {new Date(userData?.timestamp * 1000).toLocaleString()}
             </p>

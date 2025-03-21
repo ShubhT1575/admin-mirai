@@ -31784,3 +31784,41 @@ a.link-underline-dark {
 .custom-modal strong {
   color: #000;
 }
+.page-title{
+  font-size: 1.5rem;
+}
+
+/* This will affect ALL modals globally */
+.ant-modal-content {
+  background-color: #121212 !important; /* dark modal background */
+  color: white;
+}
+
+.ant-modal-header {
+  background-color: #121212 !important;
+  border-bottom: 1px solid #333;
+}
+
+.ant-modal-body {
+  background-color: #121212 !important;
+}
+
+.ant-modal-footer {
+  background-color: #121212 !important;
+  border-top: 1px solid #333;
+}
+/* ONLY applies when using className="custom-dark-modal" */
+.custom-dark-modal .ant-modal-content {
+  background-color: #121212;
+  color: white;
+}
+
+.custom-dark-modal .ant-modal-header,
+.custom-dark-modal .ant-modal-footer {
+  background-color: #121212;
+  border: none;
+}
+
+.custom-dark-modal .ant-modal-body {
+  background-color: #121212;
+}

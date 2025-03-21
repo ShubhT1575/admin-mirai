@@ -3,6 +3,7 @@ import axios from "axios";
 import { apiUrl } from "../Config";
 import { useAccount } from "wagmi";
 import { useSelector } from "react-redux";
+// 54c9f3b7-340c-4840-a220-c122ae9e3225
 
 function CoreBody() {
   const { wallet } = useSelector((state) => state.bitgold);
@@ -47,7 +48,7 @@ const totalPagesTable2 = Math.ceil(transaction.filter(item => item.packageId ===
     setTransaction(res?.data?.data);
   };
   useEffect(() => {
-    if (address) showTransaction();
+    showTransaction();
   }, [address]);
 
   const handlePreviousPageTable1 = () => {
@@ -93,7 +94,7 @@ const paginatedTable2 = transaction
                     <th scope="col" style={{color: "black"}}>Tx Hash</th>
                     <th scope="col" style={{color: "black"}}>User Id</th>
                     {/* <th scope="col" style={{color: "black"}}>Package</th> */}
-                    <th scope="col" style={{color: "black"}}>POL Coin Amt</th>
+                    <th scope="col" style={{color: "black"}}>Amount</th>
                     {/* <th scope="col">Sender</th> */}
                     {/* <th scope="col" style={{color: "black"}}>Transaction Hash</th> */}
                     {/* <th sscope="col" style={{color: "black"}}>Amount</th> */}
@@ -122,7 +123,7 @@ const paginatedTable2 = transaction
                           </a>
                         </td>
                         <td style={{ color: "black" }}>{item?.userId}</td>
-                        <td style={{ color: "black" }}>{(item?.POLCoinAmt).toFixed(3)}</td>
+                        <td style={{ color: "black" }}>$ {(item?.POLCoinAmt).toFixed(2)*0.21}</td>
                         {/* <td>{item.level}</td> */}
                         <td style={{ color: "black" }}>{new Date(item.createdAt).toLocaleString()}</td>
                         {/* <td>
@@ -197,7 +198,7 @@ const paginatedTable2 = transaction
                   <th scope="col" style={{color: "black"}}>Tx Hash</th>
                     <th scope="col" style={{color: "black"}}>User Id</th>
                     {/* <th scope="col" style={{color: "black"}}>Package</th> */}
-                    <th scope="col" style={{color: "black"}}>POL Coin Amt</th>
+                    <th scope="col" style={{color: "black"}}>Amount</th>
                     {/* <th scope="col">Sender</th> */}
                     {/* <th scope="col" style={{color: "black"}}>Transaction Hash</th> */}
                     {/* <th sscope="col" style={{color: "black"}}>Amount</th> */}
@@ -226,7 +227,7 @@ const paginatedTable2 = transaction
                           </a>
                         </td>
                         <td style={{ color: "black" }}>{item?.userId}</td>
-                        <td style={{ color: "black" }}>{(item?.POLCoinAmt).toFixed(3)}</td>
+                        <td style={{ color: "black" }}>$ {(item?.POLCoinAmt).toFixed(3)*0.21}</td>
                         {/* <td>{item.level}</td> */}
                         <td style={{ color: "black" }}>{new Date(item.createdAt).toLocaleString()}</td>
                         {/* <td>
