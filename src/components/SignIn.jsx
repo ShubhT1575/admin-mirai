@@ -62,7 +62,7 @@ function SignIn() {
     if(response.data != null){
       setTimeout(()=>{
         setLoading(false);
-        navigate("/RankReward");
+        navigate("/home");
       },2000)
     }else{
       toast.error("Invalid User Id or Password");

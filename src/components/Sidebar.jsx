@@ -250,7 +250,7 @@ function Sidebar() {
 
             <li className="slide has-sub">
               <Link
-                to="/RankReward"
+                to="/home"
                 className="side-menu__item"
                 onClick={closeSidebar}
               >

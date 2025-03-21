@@ -70,7 +70,7 @@ const AppRoutes = () => {
           <Route path="/" element={<SignIn />} />
           {/* <Route path="/learnmore" element={<LearnMore />} /> */}
           {/* <Route path="/SignUp" element={<SignUp />} /> */}
-          <Route path="/Dashboard" element={<DashboardMain />} />
+          {/* <Route path="/Dashboard" element={<DashboardMain />} /> */}
           {/* <Route path="/Level" element={<StakeMain />} /> */}
           {/* <Route path="/IncomeGraph" element={<IncomeMain />} />  */}
           {/* <Route path="/Stake" element={<StakeMain />} /> */}
@@ -82,20 +82,20 @@ const AppRoutes = () => {
           {/* <Route path="/Profile" element={<ProfileMain />} /> */}
           {/* <Route path="/Support" element={<Support />} /> */}
           {/* <Route path="/Matrix" element={<MatrixMain />} /> */}
-          <Route path="/LevelIncome" element={<LevelIncome />} />
-          <Route path="/MatrixTreeUw6" element={<MAtrixTreeUw6 />} />
+          {/* <Route path="/LevelIncome" element={<LevelIncome />} /> */}
+          {/* <Route path="/MatrixTreeUw6" element={<MAtrixTreeUw6 />} />
           <Route path="/MatrixTreeUw5" element={<MatrixTreeUw5 />} />
           <Route path="/MatrixTreeUw4" element={<MatrixTreeUw4 />} />
           <Route path="/MatrixTree" element={<MatrixTree />} />
           <Route path="/MatrixTreeUw2" element={<MatrixTreeUw2 />} />
           <Route path="/MatrixTreeUw1" element={<MatrixTreeUw1 />} />
-          <Route path="/MatrixTreeUw" element={<MatrixTreeUw />} />
+          <Route path="/MatrixTreeUw" element={<MatrixTreeUw />} /> */}
           {/* <Route path="/MatrixTreeAll" element={<MatrixTreeAll />} /> */}
           {/* <Route path="/LapseWallet" element={<LapseMain />} /> */}
           {/* <Route path="/AutoGlobal" element={<AutoMain />} /> */}
-          <Route path="/RankReward" element={<RankMain />} />
+          <Route path="/home" element={<RankMain />} />
           {/* <Route path="/Withdraw" element={<WithdrawMain />} /> */}
-          <Route path="/Terms" element={<Terms />} />
+          {/* <Route path="/Terms" element={<Terms />} /> */}
           {/* <Route path="/SignIn" element={<SignIn />} /> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
