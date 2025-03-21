@@ -8,7 +8,7 @@ import LOGO from "../assets/logo/Bitgold yellow.png";
 import { useSelector } from "react-redux";
 import { useAccount } from "wagmi";
 import Header from "./Landing/Header";
-import "../style/SignUp.css";
+import "../style/signin.css";
 import { apiUrl } from "./Config";
 import axios from "axios";
 
@@ -69,129 +69,85 @@ function SignIn() {
       setLoading(false);
       return;
     }
-    
   }
 
   return (
-    <div
-      className="row authentication authentication-cover-main mx-0"
-      // style={{
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      // }}
-    >
-      <div className="col-xxl-6 col-xl-7">
-        <div className="row justify-content-center align-items-center h-100">
-          {/* <div
-            className=""
-            style={{
-              position: "absolute",
-              top: "25px",
-              left: "0px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div className="authentication-cover-logo">
-              <ConnectWallet />
+    <div className="admin-login-container">
+      <div className="admin-login-card" style={{margin:"20px"}}>
+        <div className="admin-login-left">
+          <div className="admin-left-content">
+            <div className="admin-logo-container">
+              <img src="/final logo.png" alt="Mirai DAO" className="admin-logo" />
             </div>
-          </div> */}
-          <div className="col-xxl-7 col-xl-9 col-lg-6 col-md-6 col-sm-8 col-12 ">
-            <div className="card custom-card my-auto  new-card">
-              <div className="card-body p-5 signin-body">
-                <div className="text-center mb-3">
-                  <img src="/final logo.png" alt="" width={150} />
-                </div>
-                <p className="h5 mb-2 text-center color-class">Admin Login</p>
-                <div className="d-flex justify-content-center gap-1">
-                  <p className="mb-4 op-7 fw-normal text-center color-class">
-                    Welcome back
-                  </p>
-                </div>
-                <div className="row gy-3">
-                  <div className="col-xl-12">
-                    <label className="form-label text-dark">
-                      User Id
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control color-class"
-                      id="signup-firstname"
-                      value={userId}
-                      onChange={(e) => setUserId(e.target.value)}
-                      placeholder="Enter Your User Id"
-                      // value={isConnected ? address : " Please Connect Wallet"}
-                      style={{
-                        fontSize: "14px",
-                        background: "radial-gradient(circle, #d4f059, #6bba00)",
-                        border: ".5px solid green", opacity: "0.8"
-                      }}
-                    />
-                    <label className="form-label text-dark">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control color-class"
-                      id="signup-firstname"
-                      placeholder="Enter Your Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      // value={isConnected ? address : " Please Connect Wallet"}
-                      style={{
-                        fontSize: "14px",
-                        background: "radial-gradient(circle, #d4f059, #6bba00)",
-                        border: ".5px solid green", opacity: "0.8"
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className="d-grid mt-4">
-                    {!loading? <button
-                      className="btn btn-warning-gradient btn-wave"
-                      onClick={handleLogin}
-                    >
-                      Login
-                    </button>: <button
-                      className="btn btn-warning-gradient btn-wave d-flex justify-content-center"
-                    >
-                      <div class="loader"></div>
-                    </button>}
-                </div>
-                <div className="text-center">
+            <div className="admin-login-form">
+              <h2>Admin Login</h2>
+              <p className="welcome-text">Welcome back</p>
+              
+              <div className="input-group1">
+                <label htmlFor="userId">User ID</label>
+                <div className="input-container">
+                  <i className="fa-solid fa-user input-icon"></i>
+                  <input
+                    type="text"
+                    id="userId"
+                    value={userId}
+                    onChange={(e) => setUserId(e.target.value)}
+                    placeholder="Enter your User ID"
+                  />
                 </div>
               </div>
+              
+              <div className="input-group1" style={{ marginBottom: "50px" }}>
+                <label htmlFor="password">Password</label>
+                <div className="input-container">
+                  <i className="fa-solid fa-lock input-icon"></i>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your Password"
+                  />
+                </div>
+              </div>
+              
+              {/* <div className="forgot-password">
+                <a href="#">Forgot Password?</a>
+              </div> */}
+              
+              <button 
+                className="login-button" 
+                onClick={handleLogin}
+                disabled={loading}
+              >
+                {loading ? (
+                  <div className="loader"></div>
+                ) : (
+                  "Login"
+                )}
+              </button>
             </div>
           </div>
         </div>
-      </div>
-      <div className="col-xxl-6 col-xl-5 col-lg-12 d-xl-block d-none px-0">
-        <div
-          className="authentication-cover overflow-hidden"
-          style={{ background: "radial-gradient(black, transparent)" }}
-        >
-          <div className="aunthentication-cover-content d-flex align-items-center justify-content-center">
-            <div>
-              <div className="d-flex gap-2">
-                <h3 className="text-fixed-white mb-1 fw-medium text-light fw-900">Welcome </h3>
-                <h3 className="text-primary2">
-                  {address
-                    ? `${address.slice(0, 4)}...${address.slice(-4)}`
-                    : ""}
-                </h3>
+        
+        <div className="admin-login-right">
+          <div className="admin-right-content">
+            <h2>Welcome</h2>
+            <h3>Login to Your Account</h3>
+            <p>
+              Welcome to the Mirai DAO Admin Panel. Please log in to securely
+              manage your administrative tools and oversee platform
+              activities. Your credentials ensure system integrity and
+              functionality.
+            </p>
+            {address && (
+              <div className="wallet-address">
+                <span>Connected Wallet:</span>
+                <span className="address-display">
+                  {`${address.slice(0, 6)}...${address.slice(-4)}`}
+                </span>
               </div>
-              <h6 className="text-fixed-white mb-3 fw-medium">
-                Login to Your Account
-              </h6>
-              <p className="text-fixed-white mb-1 op-6t text-light">
-                Welcome to the Mirai Dao Admin Panel. Please log in to securely
-                manage your administrative tools and oversee platform
-                activities. Your credentials ensure system integrity and
-                functionality.
-              </p>
-            </div>
+            )}
           </div>
         </div>
       </div>
