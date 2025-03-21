@@ -270,8 +270,8 @@ export const TokenAddres ="0xa6004fa87492e9352C50356298104715CEeD4Cfa"
 export const baseUrl = window.location.origin;
 // export const apiUrl = "http://192.168.1.29:8080/api";
 // export const apiUrl = "https://usdtocean.io/api";
-   export const apiUrl = "http://localhost:8001/mirai/api/"
-// export const apiUrl = "https://local.miraidao.com/mirai/api/"
+  //  export const apiUrl = "http://localhost:8001/mirai/api/"
+export const apiUrl = "https://local.miraidao.com/mirai/api/"
 // export const apiUrl = "https://test.miraidao.com/mirai/api/"
 // http://localhost:8001/mirai/api/
 // http://usdtocean.io/api/userDetailsbyWallet?userId=0x71dFd92C06a4d3710C87e1B1e6898D452C9c0542
