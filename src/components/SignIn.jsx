@@ -17,6 +17,7 @@ function SignIn() {
   const { connector, isConnected, status, isDisconnected, address } =
     useAccount();
   const [walletAddress, setWalletAddress] = useState();
+  const [loading, setLoading] = useState(false);
   // const { isConnected } = useAccount();
   const navigate = useNavigate();
 
@@ -50,6 +51,7 @@ function SignIn() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
+    setLoading(true);
     const response = await axios.get(apiUrl + "adminlogin" , {
       params: {
         email: userId,
@@ -59,12 +61,15 @@ function SignIn() {
     console.log(response)
     if(response.data != null){
       setTimeout(()=>{
+        setLoading(false);
         navigate("/RankReward");
       },2000)
     }else{
       toast.error("Invalid User Id or Password");
+      setLoading(false);
       return;
     }
+    
   }
 
   return (
@@ -144,12 +149,16 @@ function SignIn() {
                   </div>
                 </div>
                 <div className="d-grid mt-4">
-                    <button
+                    {!loading? <button
                       className="btn btn-warning-gradient btn-wave"
                       onClick={handleLogin}
                     >
                       Login
-                    </button>
+                    </button>: <button
+                      className="btn btn-warning-gradient btn-wave d-flex justify-content-center"
+                    >
+                      <div class="loader"></div>
+                    </button>}
                 </div>
                 <div className="text-center">
                 </div>
